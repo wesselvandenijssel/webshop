@@ -3,7 +3,7 @@ session_start();
 
 /**
  * Voor de MAC gebruikers;
-*/ 
+ */
 //$dbhost = "localhost";
 //$dbuser = "root";
 //$dbpass = "root";
@@ -24,8 +24,8 @@ if ($con -> connect_errno) {
     exit();
 }
 
-define("BASEURL","http://localhost/database/webdev-base-webshop/");
-define("BASEURL_CMS","http://localhost/database/webdev-base-webshop/admin/");
+define("BASEURL","http://localhost/webdev-base-webshop/");
+define("BASEURL_CMS","http://localhost/webdev-base-webshop/admin/");
 
 function prettyDump ( $var ) {
     echo "<pre>";
