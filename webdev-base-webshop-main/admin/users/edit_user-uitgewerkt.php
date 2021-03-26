@@ -1,11 +1,10 @@
 <?php
     
     // onderstaand bestand wordt ingeladen
-    include('../../core/header.php');
+    include('../core/header.php');
     include('../core/checklogin_admin.php');
 ?>
-
-<h1>Gebruiker verwijderen</h1>
+sssssssssss
 
 <?php
 //prettyDump($_POST);
@@ -13,31 +12,29 @@
         //default user: test@test.nl
         //default password: test123
         $uid = $con->real_escape_string($_POST['uid']);
-        $query1 = $con->prepare("DELETE FROM admin_user WHERE admin_user_id = ? LIMIT 1;");
+        $email = $con->real_escape_string($_POST['email']);
+        $query1 = $con->prepare("UPDATE admin_user SET email = ? WHERE admin_user_id = ? LIMIT 1;");
         if ($query1 === false) {
             echo mysqli_error($con);
         }
                     
-        $query1->bind_param('i',$uid);
+        $query1->bind_param('si',$email,$uid);
         if ($query1->execute() === false) {
             echo mysqli_error($con);
         } else {
-            echo '<div style="border: 2px solid red">Gebruiker met admin_user_id '.$uid.' verwijderd!</div>';
+            echo '<div style="border: 2px solid red">Gebruiker aangepast</div>';
         }
         $query1->close();
                     
     }
 ?>
 
+<h1>Gebruiker bewerken</h1>
 
+
+<form action="" method="POST">
 <?php
     if (isset($_GET['uid']) && $_GET['uid'] != '') {
-
-        ?>
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-
-        <h2 style="color: red">weet je zeker dat je deze gebruiker wilt verwijderen?</h2><?php
-
         $uid = $con->real_escape_string($_GET['uid']);
 
         $liqry = $con->prepare("SELECT admin_user_id,email FROM admin_user WHERE admin_user_id = ? LIMIT 1;");
@@ -50,22 +47,17 @@
                 $liqry->store_result();
                 $liqry->fetch();
                 if($liqry->num_rows == '1'){
-                    echo '$adminId: ' . $adminId . '<br>';
-                    echo '<input type="hidden" name="uid" value="' . $adminId . '" />';
-                      echo '$email: ' . $email . '<br>';
+                    echo '$adminId: <input type="text" name="uid" value="' . $adminId . '" readonly><br>';
+                    echo '$email: <input type="text" name="email" value="' . $email . '"><br>';
                 }
             }
         }
         $liqry->close();
 
-        ?>
-        <br>
-        <input type="submit" name="submit" value="Ja, verwijderen!">
-        </form>
-        <?php
-
     }
 ?>
+<input type="submit" name="submit" value="Opslaan">
+</form>
 
 <?php
     include('../core/footer.php');

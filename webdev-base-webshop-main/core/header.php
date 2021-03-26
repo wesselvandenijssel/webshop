@@ -1,5 +1,5 @@
 <?php
-    include('core/db_connect.php');
+    include('db_connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +10,3 @@
     <title>Webshop met een leuke naam</title>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="products.php">Producten</a></li>
-    </ul>
-</nav>
