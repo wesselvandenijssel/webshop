@@ -22,7 +22,7 @@
         if ($query1->execute() === false) {
             echo mysqli_error($con);
         } else {
-            echo '<div style="border: 2px solid red">Gebruiker met admin_user_id '.$uid.' verwijderd!</div>';
+            echo '<div style="border: 2px solid red">Gebruiker met admin_user_id '.$uid.' verwijderd! <a href="index.php">Klik hier om terug te gaan</a></div>';
         }
         $query1->close();
                     

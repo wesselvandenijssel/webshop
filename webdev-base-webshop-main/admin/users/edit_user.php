@@ -23,7 +23,7 @@
         if ($query1->execute() === false) {
             echo mysqli_error($con);
         } else {
-            echo '<div style="border: 2px solid red">Gebruiker aangepast</div>';
+            echo '<div style="border: 2px solid red">Gebruiker aangepast <a href="index.php">Klik hier op terug te gaan</a></div>';
         }
         $query1->close();
                     
@@ -47,8 +47,8 @@
                 $liqry->store_result();
                 $liqry->fetch();
                 if($liqry->num_rows == '1'){
-                    echo '$adminId: <input type="text" name="uid" value="' . $adminId . '" readonly><br>';
-                    echo '$email: <input type="text" name="email" value="' . $email . '"><br>';
+                    echo 'ID= <input type="text" name="uid" value="' . $adminId . '" readonly><br>';
+                    echo 'Email= <input type="text" name="email" value="' . $email . '"><br>';
                 }
             }
         }

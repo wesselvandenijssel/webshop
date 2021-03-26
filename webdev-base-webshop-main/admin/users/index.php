@@ -23,20 +23,19 @@
                 // }
 
                 // table>tr*1>td*4
-                echo '<table border=1>
-                        <tr>
-                            <td>admin uid</td>
-                            <td>email</td>
-                            <td>edit</td>
-                            <td>delete</td>
-                        </tr>';
+                //echo '<<h2>admin uid</h2>>
+                        
+                  //          <h2>admin uid</h2>
+                    //        <h2>email</h2>
+                      //      <h2>edit</h2>
+                        //    <h2>delete</h2>
+                        //</div>';
                 while ($liqry->fetch() ) { ?>
-                        <tr>
-                        <td><?php echo $adminId; ?></td>
-                        <td><?php echo $email; ?></td>
-                        <td><a href="edit_user.php?uid=<?php echo $adminId; ?>">edit</a></td>
-                        <td><a href="delete_user.php?uid=<?php echo $adminId; ?>">delete</a></td>
-                    </tr>
+                        <div>
+                        <div><?php echo "ID= " . $adminId; ?>    <a href="edit_user.php?uid=<?php echo $adminId; ?>">Edit</a></div>
+                        <div><?php echo "E-mail= " . $email; ?>    <a href="delete_user.php?uid=<?php echo $adminId; ?>">Delete</a></div>
+                        <br>
+                    </div>
                     <?php 
                 }
                 echo '</table>';

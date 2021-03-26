@@ -17,7 +17,7 @@
         } else{
             $liqry->bind_param('s',$email);
             if($liqry->execute()){
-                echo "admin user met email " . $email . " toegevoegd.";
+                echo "admin user met email " . $email . " toegevoegd. <a href='index.php'>Klik hier om terug te gaan</a>";
             }
         }
         $liqry->close();
