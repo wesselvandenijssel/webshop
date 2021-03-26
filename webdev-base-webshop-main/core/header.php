@@ -10,3 +10,8 @@
     <title>Webshop met een leuke naam</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="products.php">Producten</a></li>
+    </ul>
+</nav>
