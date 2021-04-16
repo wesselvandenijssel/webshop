@@ -1,5 +1,5 @@
 <?php
-    include('core/header.php');
+    include('../core/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +15,10 @@
 <body>
     <header>
         <div id="logo">
-            <a href="../index"><img src="assets/img/logo.png" alt="logo"></a>
+            <a href="../home"><img src="../assets/img/logo.png" alt="logo"></a>
         </div>
         <nav><br>
-            <a href="../index.php">Home</a><br><br>
+            <a href="../home">Home</a><br><br>
             <a href="../admin">Admin</a>
         </nav>
     </header>
@@ -45,7 +45,7 @@ if($productqry === false) {
                     <?php echo $categoryNameProduct;?><br>
                     &euro; <?php echo $productPrice;?>
 
-                    <figure><img src='assets/img/<?php echo $photo?>' alt='lamp'>
+                    <figure><img src='../assets/img/<?php echo $photo?>' alt='lamp'>
                 <figcaption>
                 <?php echo $productName;?> <br>
                     <a class='myButton' href='#'>Koop nu!</a>
@@ -66,10 +66,9 @@ if($productqry === false) {
     <footer><br><br>
         <p>&copy; 2020 Wessel van den IJssel</p>
     </footer>
-    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
 <?php
-    include('core/footer.php');
+    include('../core/footer.php');
 ?>
