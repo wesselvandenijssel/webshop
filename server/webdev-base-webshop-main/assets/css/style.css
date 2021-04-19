@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    box-sizing: border-box;
+}
+#container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
+    padding: 20px;
+}
+header{
+    background-color: #547CC1;
+    height: auto;
+}
+header img{
+    width: 31.25%;
+}
+nav{
+    height: 100px;
+    background-color: #e7e7e7b2;
+    text-align: center;
+}
+article{
+    padding: 20px;
+     box-sizing: border-box; 
+}
+footer{
+    background-color: #547CC1;
+    height: 100px;
+    text-align: center;
+    clear: both;
+}
+#products{
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+.myButton {
+	background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+	background-color:#44c767;
+	border-radius:10px;
+	border:5px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px 19px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #2f6627;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+figure img{
+    width: 50%;
+}
+#vid{
+    overflow: hidden;
+    text-align: center;
+}
+#video{
+    display: block;
+    width: 60%;
+}
+
+@media screen and (max-width: 750px) {
+    #logo img{
+        width: 100%;
+        text-align: center;
+    }
+    #products{
+        display: inline;
+        text-align: center;
+    }
+    #video{
+        width: 80%;
+    }
+}
