@@ -28,13 +28,13 @@
                 <h2>Products:</h2>
                     <div id="products">
                     <?php
-$productsql = "SELECT product.name AS productName, product.price, category.name AS categoryName, product_image.image AS photo FROM product INNER JOIN category ON product.category_id = category.category_id INNER JOIN product_image ON product_image.product_id = product.product_id WHERE category.active = 1 AND product.active = 1 ORDER BY RAND()";
+$productsql = "SELECT product.name AS productName, product.price, category.name AS categoryName, product_image.image AS photo, product.product_id FROM product INNER JOIN category ON product.category_id = category.category_id INNER JOIN product_image ON product_image.product_id = product.product_id WHERE category.active = 1 AND product.active = 1 ORDER BY RAND()";
 
 $productqry = $con->prepare($productsql);
 if($productqry === false) {
     echo mysqli_error($con);
 } else{
-    $productqry->bind_result($productName, $productPrice, $categoryNameProduct, $photo);
+    $productqry->bind_result($productName, $productPrice, $categoryNameProduct, $photo, $productID);
     if($productqry->execute()){
         $productqry->store_result();
         while($productqry->fetch()){
@@ -48,7 +48,7 @@ if($productqry === false) {
                     <figure><img src='../assets/img/<?php echo $photo?>' alt='lamp'>
                 <figcaption>
                 <?php echo $productName;?> <br>
-                    <a class='myButton' href='#'>Koop nu!</a>
+                    <a class='myButton' href='../details?upd=<?php echo $productID;?>'>Koop nu!</a>
                 </figcaption>
             </figure>
             </article>

@@ -27,7 +27,7 @@ if($liqry === false) {
         while($liqry->fetch()){
             ?>
             <article>
-                <h3><?php echo "<li><a href='test_get.php?cat=$categoryName'>$categoryName</a></li>"?></h3>
+                <h3><li><a href="../products_cat?cat=<?php echo $categoryName;?>"><?php echo $categoryName;?></a></li></h3>
                 <div><?php echo $categoryDescription;?></div>
             </article>
             <?php
@@ -42,13 +42,13 @@ if($liqry === false) {
         <h2>Een aantal producten:</h2>
         <div id="products">
             <?php
-$productsql = "SELECT product.name AS productName, product.price, category.name AS categoryName, product_image.image AS photo FROM product INNER JOIN category ON product.category_id = category.category_id INNER JOIN product_image ON product_image.product_id = product.product_id WHERE category.active = 1 AND product.active = 1 ORDER BY RAND() LIMIT 3";
+$productsql = "SELECT product.name AS productName, product.price, category.name AS categoryName, product_image.image AS photo, product.product_id FROM product INNER JOIN category ON product.category_id = category.category_id INNER JOIN product_image ON product_image.product_id = product.product_id WHERE category.active = 1 AND product.active = 1 ORDER BY RAND() LIMIT 3";
 
 $productqry = $con->prepare($productsql);
 if($productqry === false) {
     echo mysqli_error($con);
 } else{
-    $productqry->bind_result($productName, $productPrice, $categoryNameProduct, $photo);
+    $productqry->bind_result($productName, $productPrice, $categoryNameProduct, $photo, $productID);
     if($productqry->execute()){
         $productqry->store_result();
         while($productqry->fetch()){
@@ -58,11 +58,10 @@ if($productqry === false) {
                 <div>
                     <?php echo $categoryNameProduct;?><br>
                     &euro; <?php echo $productPrice;?>
-
                     <figure><img src='../assets/img/<?php echo $photo?>' alt='lamp'>
                 <figcaption>
                 <?php echo $productName;?> <br>
-                    <a class='myButton' href='#'>Koop nu!</a>
+                    <a class='myButton' href='../details?upd=<?php echo $productID;?>'>Koop nu!</a>
                 </figcaption>
             </figure>
             </article>
